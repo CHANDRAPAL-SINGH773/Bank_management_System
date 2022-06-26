@@ -1,0 +1,101 @@
+package com.Bank;
+import java.util.*;
+public class BankMang
+{
+	private double bal=5000;
+	private int pwd=123;
+	
+	Scanner sc=new Scanner(System.in);
+	public void depositmoney()
+	{
+		System.out.println("Add Money :");
+		System.out.println("Plz Enter the Password");
+		int pwd=sc.nextInt();
+		if(pwd==123)
+		{
+			System.out.println("Enter the Money ");
+			double money=sc.nextDouble();
+			bal=bal+money;
+			System.out.println("Deposited Money :"+money);
+			System.out.println("Total Balance = "+bal);
+		}else
+		{
+			System.out.println("Incoreect PassWord!!!!!");
+			System.out.println("try again...");
+			System.out.println();
+			depositmoney();
+			
+		}
+	}
+		public void withdrawmoney()
+		{
+			System.out.println("Withdraw Money :");
+			System.out.println("Plz Enter the Password");
+			int pwd=sc.nextInt();
+			if(pwd==123)
+			{
+				System.out.println("Enter the Money ");
+				double money=sc.nextDouble();
+				if(bal-money>0)
+				{
+				bal=bal-money;
+				System.out.println("Withdraw Money :"+money);
+				System.out.println("Total Balance = "+bal);
+				}else
+				{
+					System.out.println("your balance is not sufficient:Balance= "+bal);
+				}
+			}else
+			{
+				System.out.println("Incoreect PassWord!!!!!");
+				System.out.println("try again...");
+				System.out.println();
+				withdrawmoney();
+				
+			}
+		}
+			public void checkBal()
+			{
+				
+				System.out.println("Plz Enter the Password");
+				int pwd=sc.nextInt();
+				if(pwd==123)
+				{
+					System.out.println("Total Balance = "+bal);
+				}else
+				{
+					System.out.println("Incoreect PassWord!!!!!");
+					
+				}
+			}
+
+	public static void main(String[] args)
+	{
+		BankMang obj=new BankMang();
+		int ch;
+		System.out.println("Welcome To The World Bank!!!");
+		System.out.println("1 Deposit:");
+		System.out.println("2 withdraw:");
+		System.out.println("3 checkbalance:");
+		System.out.println(" Enter your Choice between 1 to 3");
+		Scanner sc=new Scanner(System.in);
+		ch=sc.nextInt();
+		switch(ch)
+		{
+		case 1:
+			obj.depositmoney();
+			break;
+		case 2:
+			obj.withdrawmoney();
+			break;
+		case 3:
+			obj.checkBal();
+			break;
+		default:
+			System.out.print("Invalid Input");
+			
+			
+		}
+	}
+
+}
